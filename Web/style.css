@@ -145,6 +145,20 @@ body {
     box-shadow: 0 6px 16px rgba(36, 129, 204, 0.35);
 }
 
+.nav-github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary) !important;
+    transition: color var(--transition-speed) ease, transform 0.2s ease !important;
+}
+
+.nav-github-link:hover {
+    color: var(--primary-color) !important;
+    transform: scale(1.1);
+}
+
+
 /* Theme Toggle Button */
 .theme-toggle {
     background: none;
