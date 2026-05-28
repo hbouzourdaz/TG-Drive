@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="docs-title">TG Drive Documentation</title>
+    <meta name="description" content="Learn how to configure, mount, and optimize your unlimited virtual hard drive on Windows.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&amp;family=Outfit:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme" lang="en">
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar" style="box-shadow: none; height: 72px;">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" id="nav-logo">
+                <img src="logo.png" alt="TG Drive Logo" class="brand-logo-img">
+                <span data-i18n="nav-brand">TG Drive</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav-home">Home</a>
+                <a href="index.html#features" data-i18n="nav-features">Features</a>
+                <a href="index.html#setup" data-i18n="nav-setup">Setup</a>
+                <a href="#" class="active" data-i18n="nav-docs">Docs</a>
+                <a href="https://github.com/hbouzourdaz/TG-Drive" target="_blank" rel="noopener" class="nav-github-link" aria-label="GitHub Repository">
+                    <!-- GitHub Icon -->
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="https://github.com/hbouzourdaz/TG-Drive/releases/download/1.0.0/TelegramDriveSetup.exe" class="nav-btn" id="nav-download-btn" data-i18n="nav-download">Download</a>
+                
+                <!-- Language Toggle Button -->
+                <button class="lang-toggle" id="lang-toggle-btn" aria-label="Toggle Language">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="lang-label">AR</span>
+                </button>
+
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Docs Layout Container -->
+    <div class="container">
+        <div class="docs-container">
+            <!-- Sidebar Navigation -->
+            <aside class="docs-sidebar">
+                <div class="docs-sidebar-title" data-i18n="docs-sidebar-title">Documentation</div>
+                <ul class="docs-nav-list">
+                    <li><a href="#getting-started" class="docs-nav-link active" data-i18n="docs-nav-getstarted">Getting Started</a></li>
+                    <li><a href="#configuration" class="docs-nav-link" data-i18n="docs-nav-config">Configuration</a></li>
+                    <li><a href="#features" class="docs-nav-link" data-i18n="docs-nav-features">Key Features</a></li>
+                    <li><a href="#troubleshooting" class="docs-nav-link" data-i18n="docs-nav-troubleshoot">Troubleshooting</a></li>
+                </ul>
+            </aside>
+
+            <!-- Documentation Content -->
+            <main class="docs-content">
+                <!-- Getting Started -->
+                <section id="getting-started" class="docs-section">
+                    <h1 data-i18n="docs-gs-title">Getting Started</h1>
+                    <p data-i18n="docs-gs-intro">TG Drive maps your Telegram cloud account as a native virtual disk on Windows. Follow the instructions to install the client and start syncing files immediately.</p>
+                    
+                    <h3 data-i18n="docs-gs-req-title">System Requirements</h3>
+                    <p data-i18n="docs-gs-req-desc">To run TG Drive, you need: Windows 10 or Windows 11 (64-bit), a secure internet connection, and an active Telegram account.</p>
+                    
+                    <h3 data-i18n="docs-gs-install-title">Installation</h3>
+                    <p data-i18n="docs-gs-install-desc1">1. Download the latest installer executable from our official website or GitHub releases.</p>
+                    <p data-i18n="docs-gs-install-desc2">2. Run the <code>TelegramDriveSetup.exe</code> installer. No administrator privileges are required.</p>
+                    <p data-i18n="docs-gs-install-desc3">3. The setup extracts all application binaries under your local app data directory and creates desktop/start-menu shortcuts.</p>
+                </section>
+
+                <!-- Configuration -->
+                <section id="configuration" class="docs-section">
+                    <h2 data-i18n="docs-conf-title">Configuration & Mapping</h2>
+                    <p data-i18n="docs-conf-intro">Setting up secure authorization is a one-time process. All credentials remain completely local and encrypted.</p>
+                    
+                    <h3 data-i18n="docs-conf-api-title">Getting Telegram API Credentials</h3>
+                    <div data-i18n="docs-conf-api-desc">
+                        Before logging in, you must obtain an API ID and API Hash from Telegram:
+                        <ol>
+                            <li>Go to <a href="https://my.telegram.org" target="_blank">my.telegram.org</a> and sign in with your phone number.</li>
+                            <li>Select <strong>API development tools</strong>.</li>
+                            <li>Create a new application (you can use any name/shortname).</li>
+                            <li>Copy the generated <strong>App api_id</strong> and <strong>App api_hash</strong>.</li>
+                        </ol>
+                    </div>
+                    
+                    <h3 data-i18n="docs-conf-login-title">Client Login</h3>
+                    <p data-i18n="docs-conf-login-desc">Launch TG Drive, enter your <code>API ID</code>, <code>API Hash</code>, and phone number (in international format, e.g. <code>+123456789</code>). Click 'Connect'. Enter the verification code (OTP) sent to your Telegram application.</p>
+                    
+                    <h3 data-i18n="docs-conf-mount-title">Mount Options & Drive Letters</h3>
+                    <p data-i18n="docs-conf-mount-desc">By default, TG Drive mounts as the virtual letter <code>T:</code> (Telegram Cloud). You can change this letter in settings if it conflicts with a physical disk. The client also lets you configure a local downloads directory to cache files temporarily for faster retrieval, and select automatic background backup folders to sync files from your local PC to Telegram.</p>
+                </section>
+
+                <!-- Key Features -->
+                <section id="features" class="docs-section">
+                    <h2 data-i18n="docs-feat-title">Key Features & Architecture</h2>
+                    
+                    <h3 data-i18n="docs-feat-sqlite-title">SQLite Database & Storage Logs</h3>
+                    <p data-i18n="docs-feat-sqlite-desc">TG Drive uses an embedded, encrypted SQLite database locally on your system to maintain index structures, settings, mappings, and activity logs. You can review synchronization history and debug logs directly within the app.</p>
+                    
+                    <h3 data-i18n="docs-feat-zombie-title">Process Cleanup Guard</h3>
+                    <p data-i18n="docs-feat-zombie-desc">To avoid mounting errors or database locks, the client runs a single-instance startup check. If any previous zombie process of TG Drive is still running in the background, it will automatically shut down and clean up active handles before booting the new window.</p>
+                    
+                    <h3 data-i18n="docs-feat-retry-title">Cache-Busting & Retries</h3>
+                    <p data-i18n="docs-feat-retry-desc">Built over the high-performance <code>WTelegramClient</code> client library, the application integrates customized network resilience mechanisms. If a connection dropout occurs, the sync engine automatically performs cache-busting retries with exponential backoffs to prevent file transfer corruption.</p>
+                </section>
+
+                <!-- Troubleshooting -->
+                <section id="troubleshooting" class="docs-section">
+                    <h2 data-i18n="docs-tb-title">Troubleshooting & FAQs</h2>
+                    
+                    <div class="docs-alert warning">
+                        <div class="docs-alert-title" data-i18n="docs-tb-warning-title">Security Notice</div>
+                        <p data-i18n="docs-tb-warning-desc">Never share your API ID, API Hash, or verification code (OTP) with anyone. TG Drive will never request this information online or send it to external servers; it is stored solely on your local computer.</p>
+                    </div>
+
+                    <h3 data-i18n="docs-tb-zombie-title">Error: Multiple Instances Detected</h3>
+                    <p data-i18n="docs-tb-zombie-desc">If the app reports that another session is active, close TG Drive completely. Check Windows Task Manager to kill any lingering <code>TelegramDrive.exe</code> tasks manually if the automated cleanup fails.</p>
+                    
+                    <h3 data-i18n="docs-tb-auth-title">Telegram Connection/Auth Errors</h3>
+                    <p data-i18n="docs-tb-auth-desc">Ensure your API ID and Hash are correct. A common error is a mismatch in phone format. Ensure you include the full country prefix (e.g., <code>+1</code>, <code>+44</code>, <code>+213</code>) and do not insert any spaces. Also verify that you have not exceeded Telegram's API call rate limits.</p>
+                    
+                    <h3 data-i18n="docs-tb-db-title">SQLite Database Lock Issues</h3>
+                    <p data-i18n="docs-tb-db-desc">If files fail to sync and log errors mention database locking, restart the application. This happens if the SQLite file is accessed by multiple worker threads simultaneously. The built-in engine automatically handles lock retries, but a restart will release all database connections.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="TG Drive Logo" class="brand-logo-img">
+                    <span data-i18n="nav-brand">TG Drive</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#features" data-i18n="nav-features">Features</a>
+                    <a href="index.html#setup" data-i18n="nav-setup">Setup</a>
+                    <a href="#" class="active" data-i18n="nav-docs">Docs</a>
+                    <a href="https://github.com/hbouzourdaz/TG-Drive" target="_blank" rel="noopener" data-i18n="foot-github">GitHub</a>
+                    <a href="https://github.com/hbouzourdaz/TG-Drive/releases/download/1.0.0/TelegramDriveSetup.exe" data-i18n="foot-download">Direct Download</a>
+                </div>
+                <p class="copyright" data-i18n="foot-copy">© 2026 TG Drive Client. Formulated with performance first.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

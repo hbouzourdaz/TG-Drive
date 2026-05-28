@@ -158,8 +158,8 @@ public sealed partial class LoginPage : Page
         warningBorder.Child = new TextBlock
         {
             Text = LocalizationHelper.CurrentLanguage == "ar" 
-                ? "يستخدم Telegram Drive حساب تليجرام الخاص بك كمساحة تخزين سحابية آمنة.\nستحتاج إلى حساب تليجرام وبيانات API للبدء."
-                : "Telegram Drive uses your Telegram account as secure cloud storage.\nYou'll need a Telegram account and API credentials to get started.",
+                ? "يستخدم TG Drive حساب تليجرام الخاص بك كمساحة تخزين سحابية آمنة.\nستحتاج إلى حساب تليجرام وبيانات API للبدء."
+                : "TG Drive uses your Telegram account as secure cloud storage.\nYou'll need a Telegram account and API credentials to get started.",
             Foreground = (Microsoft.UI.Xaml.Media.Brush)Application.Current.Resources["TgWarningBrush"],
             FontSize = 12,
             TextWrapping = TextWrapping.Wrap

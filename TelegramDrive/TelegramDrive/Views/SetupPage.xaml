@@ -77,7 +77,7 @@
                                        VerticalAlignment="Center"/>
                         </Border>
 
-                        <TextBlock Text="Welcome to Telegram Drive"
+                        <TextBlock Text="Welcome to TG Drive"
                                    FontSize="26" FontWeight="Bold"
                                    Foreground="#FFFFFF"
                                    HorizontalAlignment="Center"

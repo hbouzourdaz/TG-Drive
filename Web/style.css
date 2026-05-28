@@ -906,3 +906,270 @@ body[dir="rtl"] .dialog-header {
     flex-direction: row-reverse;
 }
 
+/* ====================================================
+   Documentation Page Styles
+   ==================================================== */
+.docs-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    margin-top: 72px; /* Navbar height */
+    padding-top: 60px;
+    padding-bottom: 80px;
+    align-items: start;
+}
+
+.docs-sidebar {
+    position: sticky;
+    top: 110px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    padding-right: 16px;
+}
+
+.docs-sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.docs-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.docs-nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: block;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+}
+
+.docs-nav-link:hover {
+    color: var(--primary-color);
+}
+
+.docs-nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left-color: var(--primary-color);
+}
+
+.docs-content {
+    max-width: 800px;
+}
+
+.docs-section {
+    margin-bottom: 60px;
+    scroll-margin-top: 110px;
+}
+
+.docs-section h1 {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.docs-section h2 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.docs-section h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.docs-section p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.docs-section ul, .docs-section ol {
+    margin-bottom: 18px;
+    padding-left: 24px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.docs-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.docs-section li strong {
+    color: var(--text-primary);
+}
+
+/* Code Snippets */
+code {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+pre {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+    margin-bottom: 20px;
+    font-family: monospace;
+    font-size: 13.5px;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-primary);
+    font-size: inherit;
+}
+
+/* Documentation Cards / Alerts */
+.docs-alert {
+    padding: 16px 20px;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--highlight-bg);
+    margin-bottom: 24px;
+}
+
+.docs-alert.warning {
+    border-left-color: #FFBD2E;
+    background-color: rgba(255, 189, 46, 0.08);
+}
+
+.docs-alert-title {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.docs-alert.info .docs-alert-title {
+    color: var(--primary-color);
+}
+
+.docs-alert.warning .docs-alert-title {
+    color: #E2A100;
+}
+
+.docs-alert p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+/* Responsive Docs */
+@media (max-width: 768px) {
+    .docs-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 40px;
+    }
+    
+    .docs-sidebar {
+        position: static;
+        max-height: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 20px;
+    }
+    
+    .docs-nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+    
+    .docs-nav-link {
+        border-left: none;
+        padding-left: 0;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+    }
+    
+    .docs-nav-link.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-color);
+    }
+}
+
+/* Right-To-Left (RTL) Docs Adjustments */
+body[dir="rtl"] .docs-sidebar {
+    padding-right: 0;
+    padding-left: 16px;
+}
+
+body[dir="rtl"] .docs-nav-link {
+    border-left: none;
+    border-right: 2px solid transparent;
+    padding-left: 0;
+    padding-right: 12px;
+}
+
+body[dir="rtl"] .docs-nav-link.active {
+    border-right-color: var(--primary-color);
+}
+
+body[dir="rtl"] .docs-alert {
+    border-left: none;
+    border-right: 4px solid var(--primary-color);
+}
+
+body[dir="rtl"] .docs-alert.warning {
+    border-right-color: #FFBD2E;
+}
+
+@media (max-width: 768px) {
+    body[dir="rtl"] .docs-sidebar {
+        padding-left: 0;
+    }
+    
+    body[dir="rtl"] .docs-nav-link {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+    }
+    
+    body[dir="rtl"] .docs-nav-link.active {
+        border-bottom-color: var(--primary-color);
+    }
+}
+
+
