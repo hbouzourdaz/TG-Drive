@@ -35,7 +35,7 @@ TG-Drive is a sleek, premium, performance-first Windows desktop client that maps
 
 ### Installing
 1. Go to the `Installer` directory.
-2. Run the [TelegramDriveSetup.exe](Installer/TelegramDriveSetup.exe) installer.
+2. Run the [TelegramDriveSetup.exe](https://github.com/hbouzourdaz/TG-Drive/releases/download/1.0.0/TelegramDriveSetup.exe) installer.
 3. Choose to install under your local user directory (no Admin privileges needed).
 4. Launch the application, input your secure Telegram API credentials, verify the OTP sent to your Telegram app, and start mapping!
 
