@@ -1,0 +1,58 @@
+<Page
+    x:Class="TelegramDrive.Views.OtpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Style="{StaticResource TgCardStyle}" Width="420" Padding="30">
+            <StackPanel Spacing="10">
+                <!-- Title -->
+                <TextBlock x:Name="TitleText" Text="Security Verification"
+                    Foreground="{StaticResource TgPrimaryBrush}"
+                    FontSize="22" FontWeight="Bold"
+                    FontFamily="{StaticResource TgFontFamily}"
+                    HorizontalAlignment="Center" />
+
+                <TextBlock x:Name="SubtitleText"
+                    Text="Sent code to your Telegram app"
+                    Foreground="{StaticResource TgTextSecondaryBrush}"
+                    FontSize="11" FontFamily="{StaticResource TgFontFamily}"
+                    HorizontalAlignment="Center" Margin="0,0,0,15" />
+
+                <!-- OTP Code -->
+                <TextBlock x:Name="OtpLabel" Text="OTP Code" Foreground="{StaticResource TgTextSecondaryBrush}"
+                    FontSize="12" FontFamily="{StaticResource TgFontFamily}" />
+                <TextBox x:Name="OtpBox" PlaceholderText="Enter Code"
+                    Style="{StaticResource TgTextBoxStyle}" />
+
+                <!-- 2FA Password (hidden by default) -->
+                <TextBlock x:Name="PasswordLabel" Text="Two-Factor Password"
+                    Foreground="{StaticResource TgTextSecondaryBrush}"
+                    FontSize="12" FontFamily="{StaticResource TgFontFamily}"
+                    Visibility="Collapsed" />
+                <PasswordBox x:Name="PasswordBox" PlaceholderText="Enter 2FA Password"
+                    Style="{StaticResource TgPasswordBoxStyle}"
+                    Visibility="Collapsed" />
+
+                <!-- Status -->
+                <TextBlock x:Name="StatusLabel" Text=""
+                    Foreground="{StaticResource TgPrimaryBrush}"
+                    FontSize="11" FontFamily="{StaticResource TgFontFamily}"
+                    TextWrapping="Wrap" HorizontalAlignment="Center" />
+
+                <!-- Verify Button -->
+                <Button x:Name="VerifyBtn" Content="Verify Code"
+                    Style="{StaticResource TgPrimaryButtonStyle}"
+                    Click="OnVerifyClick" Margin="0,10,0,0" />
+
+                <!-- Back Button -->
+                <Button x:Name="BackBtn" Content="Back to Login"
+                    Style="{StaticResource TgGhostButtonStyle}"
+                    Foreground="{StaticResource TgTextSecondaryBrush}"
+                    HorizontalAlignment="Stretch"
+                    Click="OnBackClick" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

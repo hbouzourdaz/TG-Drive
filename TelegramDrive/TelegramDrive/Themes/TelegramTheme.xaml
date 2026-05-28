@@ -1,0 +1,177 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ════════════════════════════════════════════════════════════
+         TELEGRAM DESKTOP DARK THEME — Color Palette
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- Core Backgrounds -->
+    <Color x:Key="TgBgDeep">#FF0E1621</Color>
+    <Color x:Key="TgBgSurface">#FF17212B</Color>
+    <Color x:Key="TgBgCard">#FF182533</Color>
+    <Color x:Key="TgBgInput">#FF242F3D</Color>
+    <Color x:Key="TgBgDivider">#FF101921</Color>
+    <Color x:Key="TgBgHover">#FF202B36</Color>
+    <Color x:Key="TgBgSelected">#FF1A2D42</Color>
+
+    <!-- Primary Accent (Telegram Blue) -->
+    <Color x:Key="TgPrimary">#FF2481CC</Color>
+    <Color x:Key="TgPrimaryHover">#FF2B5278</Color>
+    <Color x:Key="TgPrimaryLight">#FF5288C1</Color>
+
+    <!-- Status Colors -->
+    <Color x:Key="TgSuccess">#FF2BCA4F</Color>
+    <Color x:Key="TgSuccessPulse">#FF3FF267</Color>
+    <Color x:Key="TgError">#FFFF4D4D</Color>
+    <Color x:Key="TgErrorHover">#FFCC3333</Color>
+    <Color x:Key="TgWarning">#FFE6A100</Color>
+    <Color x:Key="TgWarningHover">#FFCC8F00</Color>
+
+    <!-- Text Colors -->
+    <Color x:Key="TgTextPrimary">#FFFFFFFF</Color>
+    <Color x:Key="TgTextSecondary">#FF7F91A4</Color>
+    <Color x:Key="TgTextAccent">#FF5288C1</Color>
+    <Color x:Key="TgTextMuted">#FF808080</Color>
+
+    <!-- File Badge Colors -->
+    <Color x:Key="TgBadgeDoc">#FF1E6B55</Color>
+    <Color x:Key="TgBadgeMedia">#FF5B3FA6</Color>
+    <Color x:Key="TgBadgeZip">#FFA65F1E</Color>
+    <Color x:Key="TgBadgeOther">#FF2E4A6B</Color>
+    <Color x:Key="TgBadgeFolder">#FF285F50</Color>
+
+    <!-- SolidColorBrush References -->
+    <SolidColorBrush x:Key="TgBgDeepBrush" Color="{StaticResource TgBgDeep}" />
+    <SolidColorBrush x:Key="TgBgSurfaceBrush" Color="{StaticResource TgBgSurface}" />
+    <SolidColorBrush x:Key="TgBgCardBrush" Color="{StaticResource TgBgCard}" />
+    <SolidColorBrush x:Key="TgBgInputBrush" Color="{StaticResource TgBgInput}" />
+    <SolidColorBrush x:Key="TgBgDividerBrush" Color="{StaticResource TgBgDivider}" />
+    <SolidColorBrush x:Key="TgBgHoverBrush" Color="{StaticResource TgBgHover}" />
+    <SolidColorBrush x:Key="TgBgSelectedBrush" Color="{StaticResource TgBgSelected}" />
+    <SolidColorBrush x:Key="TgPrimaryBrush" Color="{StaticResource TgPrimary}" />
+    <SolidColorBrush x:Key="TgPrimaryHoverBrush" Color="{StaticResource TgPrimaryHover}" />
+    <SolidColorBrush x:Key="TgPrimaryLightBrush" Color="{StaticResource TgPrimaryLight}" />
+    <SolidColorBrush x:Key="TgSuccessBrush" Color="{StaticResource TgSuccess}" />
+    <SolidColorBrush x:Key="TgErrorBrush" Color="{StaticResource TgError}" />
+    <SolidColorBrush x:Key="TgWarningBrush" Color="{StaticResource TgWarning}" />
+    <SolidColorBrush x:Key="TgTextPrimaryBrush" Color="{StaticResource TgTextPrimary}" />
+    <SolidColorBrush x:Key="TgTextSecondaryBrush" Color="{StaticResource TgTextSecondary}" />
+    <SolidColorBrush x:Key="TgTextAccentBrush" Color="{StaticResource TgTextAccent}" />
+    <SolidColorBrush x:Key="TgTextMutedBrush" Color="{StaticResource TgTextMuted}" />
+
+    <!-- ════════════════════════════════════════════════════════════
+         TYPOGRAPHY
+         ════════════════════════════════════════════════════════════ -->
+    <FontFamily x:Key="TgFontFamily">Segoe UI Variable, Segoe UI, sans-serif</FontFamily>
+
+    <!-- ════════════════════════════════════════════════════════════
+         CONTROL STYLE OVERRIDES — Telegram Dark Theming
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- TextBox / Input Overrides -->
+    <Style x:Key="TgTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource TgBgInputBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TgBgDividerBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="TgPasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="Background" Value="{StaticResource TgBgInputBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TgBgDividerBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <!-- Primary Action Button -->
+    <Style x:Key="TgPrimaryButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource TgPrimaryBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgTextPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="20,10" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Height" Value="40" />
+    </Style>
+
+    <!-- Transparent/Ghost Button -->
+    <Style x:Key="TgGhostButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TgPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="16,8" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Height" Value="36" />
+    </Style>
+
+    <!-- Danger/Delete Button -->
+    <Style x:Key="TgDangerButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TgErrorBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Padding" Value="12,6" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+    </Style>
+
+    <!-- Capsule Filter Button (Active) -->
+    <Style x:Key="TgCapsuleActiveStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource TgPrimaryBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgTextPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="Padding" Value="14,4" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Height" Value="28" />
+    </Style>
+
+    <!-- Capsule Filter Button (Inactive) -->
+    <Style x:Key="TgCapsuleInactiveStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource TgBgSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgTextSecondaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="Padding" Value="14,4" />
+        <Setter Property="FontFamily" Value="{StaticResource TgFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Height" Value="28" />
+    </Style>
+
+    <!-- Card Container -->
+    <Style x:Key="TgCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource TgBgSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TgBgDividerBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="20" />
+    </Style>
+
+    <!-- ProgressBar -->
+    <Style x:Key="TgProgressBarStyle" TargetType="ProgressBar">
+        <Setter Property="Background" Value="{StaticResource TgBgInputBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TgPrimaryBrush}" />
+        <Setter Property="Height" Value="5" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Maximum" Value="100" />
+    </Style>
+
+</ResourceDictionary>

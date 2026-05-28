@@ -1,0 +1,362 @@
+<Page
+    x:Class="TelegramDrive.Views.SetupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="#0D1B2A">
+
+    <Grid>
+        <!-- Subtle gradient overlay -->
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0D1B2A" Offset="0"/>
+                    <GradientStop Color="#112233" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!-- Glowing orb top-left -->
+        <Ellipse Width="600" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Margin="-200,-200,0,0" Opacity="0.06">
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#2AABEE" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <!-- Glowing orb bottom-right -->
+        <Ellipse Width="500" Height="500" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                 Margin="0,0,-150,-150" Opacity="0.05">
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#3FD2A7" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <!-- Step indicator strip -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Margin="0,40,0,0" Spacing="10">
+            <Ellipse x:Name="Step1Dot" Width="10" Height="10" Fill="#2AABEE"/>
+            <Ellipse x:Name="Step2Dot" Width="10" Height="10" Fill="#2A3B4E"/>
+            <Ellipse x:Name="Step3Dot" Width="10" Height="10" Fill="#2A3B4E"/>
+        </StackPanel>
+
+        <!-- Central card -->
+        <Border MaxWidth="620" MaxHeight="720"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                CornerRadius="20"
+                BorderBrush="#1E3A5F" BorderThickness="1"
+                Padding="48,44,48,44">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#0F2336" Offset="0"/>
+                    <GradientStop Color="#0A1929" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <StackPanel Spacing="0">
+
+                <!-- ── PAGE 1: Welcome ── -->
+                <StackPanel x:Name="WelcomePanel" Spacing="20">
+                    <!-- Logo + Title -->
+                    <StackPanel HorizontalAlignment="Center" Spacing="12">
+                        <Border Width="72" Height="72" CornerRadius="18"
+                                HorizontalAlignment="Center">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#1A6FA8" Offset="0"/>
+                                    <GradientStop Color="#2AABEE" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="✈" FontSize="34" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <TextBlock Text="Welcome to Telegram Drive"
+                                   FontSize="26" FontWeight="Bold"
+                                   Foreground="#FFFFFF"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+                        <TextBlock Text="Let's set up your workspace in just 2 quick steps."
+                                   FontSize="14" Foreground="#8BAFC9"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+                    </StackPanel>
+
+                    <Rectangle Height="1" Fill="#1E3A5F" Margin="0,8,0,8"/>
+
+                    <!-- Feature pills -->
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="4" Margin="0,0,0,0">
+                        <Border CornerRadius="20" Background="#0F2E4A" Padding="12,6" Margin="4">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <TextBlock Text="☁" FontSize="13" Foreground="#2AABEE"/>
+                                <TextBlock Text="Unlimited Cloud" FontSize="12" Foreground="#8BAFC9"/>
+                            </StackPanel>
+                        </Border>
+                        <Border CornerRadius="20" Background="#0F2E4A" Padding="12,6" Margin="4">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <TextBlock Text="🔄" FontSize="13" Foreground="#3FD2A7"/>
+                                <TextBlock Text="Auto Backup" FontSize="12" Foreground="#8BAFC9"/>
+                            </StackPanel>
+                        </Border>
+                        <Border CornerRadius="20" Background="#0F2E4A" Padding="12,6" Margin="4">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <TextBlock Text="⚡" FontSize="13" Foreground="#F5C842"/>
+                                <TextBlock Text="Fast Transfer" FontSize="12" Foreground="#8BAFC9"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <Rectangle Height="1" Fill="#1E3A5F" Margin="0,8,0,8"/>
+
+                    <!-- What we'll set up -->
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="What we'll configure:" FontSize="13"
+                                   Foreground="#8BAFC9" FontWeight="SemiBold"/>
+
+                        <Border CornerRadius="10" Background="#0A2030" Padding="16,12">
+                            <StackPanel Orientation="Horizontal" Spacing="14">
+                                <TextBlock Text="📥" FontSize="22" VerticalAlignment="Center"/>
+                                <StackPanel>
+                                    <TextBlock Text="Downloads Folder" FontSize="14"
+                                               FontWeight="SemiBold" Foreground="#FFFFFF"/>
+                                    <TextBlock Text="Where cloud files land when you download them"
+                                               FontSize="12" Foreground="#6B8EA8"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <Border CornerRadius="10" Background="#0A2030" Padding="16,12">
+                            <StackPanel Orientation="Horizontal" Spacing="14">
+                                <TextBlock Text="🔄" FontSize="22" VerticalAlignment="Center"/>
+                                <StackPanel>
+                                    <TextBlock Text="Auto-Backup Folder" FontSize="14"
+                                               FontWeight="SemiBold" Foreground="#FFFFFF"/>
+                                    <TextBlock Text="A folder watched 24/7 — new files auto-upload"
+                                               FontSize="12" Foreground="#6B8EA8"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <Button x:Name="WelcomeNextBtn" Content="Get Started →"
+                            Click="OnWelcomeNext"
+                            HorizontalAlignment="Stretch" Height="46"
+                            FontSize="15" FontWeight="SemiBold"
+                            Foreground="White" CornerRadius="10"
+                            Margin="0,16,0,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#1A6FA8" Offset="0"/>
+                                <GradientStop Color="#2AABEE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <Button Content="Skip Setup, go to Dashboard →"
+                            Click="OnSkipSetup"
+                            HorizontalAlignment="Center"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="12" Foreground="#4A6A85"
+                            Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- ── PAGE 2: Downloads Folder ── -->
+                <StackPanel x:Name="DownloadsPanel" Visibility="Collapsed" Spacing="20">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <Border Width="64" Height="64" CornerRadius="16"
+                                HorizontalAlignment="Center">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#1A5080" Offset="0"/>
+                                    <GradientStop Color="#2AABEE" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="📥" FontSize="28" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Step 1 of 2 — Downloads Folder"
+                                   FontSize="11" Foreground="#2AABEE"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="Where should downloads go?"
+                                   FontSize="22" FontWeight="Bold"
+                                   Foreground="#FFFFFF" HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+                        <TextBlock Text="Downloaded cloud files will be saved here automatically."
+                                   FontSize="13" Foreground="#8BAFC9"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Current path box -->
+                    <Border CornerRadius="10" Background="#0A2030"
+                            BorderBrush="#1E3A5F" BorderThickness="1"
+                            Padding="16,14">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0" Spacing="4">
+                                <TextBlock Text="Current folder" FontSize="11"
+                                           Foreground="#4A6A85" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="DownloadsFolderText"
+                                           Text="Not set — using default Downloads"
+                                           FontSize="13" Foreground="#8BAFC9"
+                                           TextTrimming="CharacterEllipsis"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Text="📁" FontSize="20"
+                                       VerticalAlignment="Center" Margin="12,0,0,0"/>
+                        </Grid>
+                    </Border>
+
+                    <Button x:Name="BrowseDownloadsBtn"
+                            Content="📂  Browse &amp; Select Folder"
+                            Click="OnBrowseDownloads"
+                            HorizontalAlignment="Stretch" Height="44"
+                            Background="#0F2E4A"
+                            Foreground="#2AABEE"
+                            BorderBrush="#1A6FA8" BorderThickness="1"
+                            CornerRadius="10" FontSize="14" FontWeight="SemiBold"/>
+
+                    <!-- Default tip -->
+                    <Border CornerRadius="8" Background="#0A1F2E" Padding="14,10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Text="💡" FontSize="16" VerticalAlignment="Top"/>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#5A7A95"
+                                       Text="If you skip this step, files will go to your default Windows Downloads folder."/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Nav buttons -->
+                    <Grid ColumnDefinitions="*,*" Margin="0,8,0,0">
+                        <Button Grid.Column="0" Content="← Back" Click="OnDownloadsBack"
+                                Height="44" CornerRadius="10"
+                                Background="#0F2030" Foreground="#8BAFC9"
+                                BorderBrush="#1E3A5F" BorderThickness="1"
+                                HorizontalAlignment="Stretch" Margin="0,0,6,0"/>
+                        <Button Grid.Column="1" Content="Next →" Click="OnDownloadsNext"
+                                Height="44" CornerRadius="10"
+                                Foreground="White" HorizontalAlignment="Stretch" Margin="6,0,0,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#1A6FA8" Offset="0"/>
+                                    <GradientStop Color="#2AABEE" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+                <!-- ── PAGE 3: Auto-Backup Folder ── -->
+                <StackPanel x:Name="BackupPanel" Visibility="Collapsed" Spacing="20">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <Border Width="64" Height="64" CornerRadius="16"
+                                HorizontalAlignment="Center">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#0D3D2E" Offset="0"/>
+                                    <GradientStop Color="#3FD2A7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="🔄" FontSize="28" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Step 2 of 2 — Auto-Backup"
+                                   FontSize="11" Foreground="#3FD2A7"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="Auto-backup a local folder?"
+                                   FontSize="22" FontWeight="Bold"
+                                   Foreground="#FFFFFF" HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+                        <TextBlock Text="Any new file dropped into this folder will be auto-uploaded to your Telegram cloud."
+                                   FontSize="13" Foreground="#8BAFC9"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center" TextWrapping="Wrap"/>
+                    </StackPanel>
+
+                    <!-- Toggle switch -->
+                    <Border CornerRadius="10" Background="#0A2030"
+                            BorderBrush="#1E3A5F" BorderThickness="1"
+                            Padding="16,14">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0" Spacing="4">
+                                <TextBlock Text="Enable auto-backup" FontSize="14"
+                                           FontWeight="SemiBold" Foreground="#FFFFFF"/>
+                                <TextBlock Text="Watch a folder and upload new files automatically"
+                                           FontSize="12" Foreground="#4A6A85"/>
+                            </StackPanel>
+                            <ToggleSwitch x:Name="BackupToggle" Grid.Column="1"
+                                          IsOn="False" Toggled="OnBackupToggled"
+                                          OnContent="" OffContent=""
+                                          VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Backup folder picker (shown when toggled on) -->
+                    <StackPanel x:Name="BackupFolderSection" Visibility="Collapsed" Spacing="12">
+                        <Border CornerRadius="10" Background="#0A2030"
+                                BorderBrush="#1E3A5F" BorderThickness="1"
+                                Padding="16,14">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <StackPanel Grid.Column="0" Spacing="4">
+                                    <TextBlock Text="Backup folder" FontSize="11"
+                                               Foreground="#4A6A85" FontWeight="SemiBold"/>
+                                    <TextBlock x:Name="BackupFolderText"
+                                               Text="No folder selected"
+                                               FontSize="13" Foreground="#8BAFC9"
+                                               TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
+                                <TextBlock Grid.Column="1" Text="🔄" FontSize="20"
+                                           VerticalAlignment="Center" Margin="12,0,0,0"/>
+                            </Grid>
+                        </Border>
+
+                        <Button x:Name="BrowseBackupBtn"
+                                Content="📂  Browse &amp; Select Backup Folder"
+                                Click="OnBrowseBackup"
+                                HorizontalAlignment="Stretch" Height="44"
+                                Background="#0F2E20"
+                                Foreground="#3FD2A7"
+                                BorderBrush="#1A7A5A" BorderThickness="1"
+                                CornerRadius="10" FontSize="14" FontWeight="SemiBold"/>
+                    </StackPanel>
+
+                    <!-- Tip -->
+                    <Border CornerRadius="8" Background="#0A1F2E" Padding="14,10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Text="💡" FontSize="16" VerticalAlignment="Top"/>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#5A7A95"
+                                       Text="You can always change backup settings later from the dashboard. This step is optional."/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Nav buttons -->
+                    <Grid ColumnDefinitions="*,*" Margin="0,8,0,0">
+                        <Button Grid.Column="0" Content="← Back" Click="OnBackupBack"
+                                Height="44" CornerRadius="10"
+                                Background="#0F2030" Foreground="#8BAFC9"
+                                BorderBrush="#1E3A5F" BorderThickness="1"
+                                HorizontalAlignment="Stretch" Margin="0,0,6,0"/>
+                        <Button Grid.Column="1" x:Name="FinishBtn"
+                                Content="✓  Finish Setup" Click="OnFinish"
+                                Height="44" CornerRadius="10"
+                                Foreground="White" HorizontalAlignment="Stretch" Margin="6,0,0,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#1A7A5A" Offset="0"/>
+                                    <GradientStop Color="#3FD2A7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

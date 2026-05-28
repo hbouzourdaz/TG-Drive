@@ -1,0 +1,63 @@
+# =========================================================================
+# Standard Visual Studio & C# Gitignore Configuration
+# =========================================================================
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userresource
+*.userprefs
+*.nosync
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Re]leases/
+x64/
+x86/
+ARM/
+ARM64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017/2019/2022 cache directories
+.vs/
+.idea/
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================================================================
+# Application & Telegram Specific Exclusions (CRITICAL FOR SECURITY)
+# =========================================================================
+
+# Database files
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Telegram WTelegramClient Session files (Sensitive Credentials!)
+*.session
+wt_session.session
+tg_storage_session.session
+
+# Log and diagnostic outputs
+*.log
+*_stdout.log
+*_stderr.log
+xaml_stderr.txt
+xaml_stdout.txt
+
+# =========================================================================
+# Inno Setup Outputs
+# =========================================================================
+Installer/
+_ispack/

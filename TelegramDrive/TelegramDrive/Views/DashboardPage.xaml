@@ -1,0 +1,356 @@
+<Page
+    x:Class="TelegramDrive.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent"
+    KeyDown="Page_KeyDown">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ══════════════════════════════════════════════════════
+             LEFT SIDEBAR — Telegram Desktop Chat List Style
+             ══════════════════════════════════════════════════════ -->
+        <Border Grid.Column="0" Background="{StaticResource TgBgSurfaceBrush}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <!-- Logo -->
+                    <TextBlock x:Name="LogoText" Text="Telegram Desktop Storage"
+                        Foreground="{StaticResource TgPrimaryBrush}"
+                        FontSize="16" FontWeight="Bold"
+                        FontFamily="{StaticResource TgFontFamily}"
+                        HorizontalAlignment="Center" Margin="0,15,0,2" />
+                    <TextBlock x:Name="OnlineLabel" Text="online"
+                        Foreground="{StaticResource TgTextAccentBrush}"
+                        FontSize="11" FontFamily="{StaticResource TgFontFamily}"
+                        HorizontalAlignment="Center" Margin="0,0,0,10" />
+
+                    <!-- Divider -->
+                    <Border Height="1" Background="{StaticResource TgBgDividerBrush}" />
+
+                    <!-- Backend Selector Buttons -->
+                    <StackPanel Margin="6,10,6,10">
+                        <!-- Cloud Backend Row -->
+                        <Button x:Name="CloudBtn" Click="OnCloudClick"
+                            HorizontalAlignment="Stretch" Height="60"
+                            Background="Transparent" BorderThickness="0" CornerRadius="8"
+                            Padding="10,8" HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="42" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20"
+                                    Background="{StaticResource TgPrimaryBrush}">
+                                    <TextBlock Text="🔖" FontSize="16" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="12,0,0,0">
+                                    <TextBlock x:Name="CloudBtnTitle" Text="Saved Messages"
+                                        Foreground="{StaticResource TgTextPrimaryBrush}"
+                                        FontSize="13" FontWeight="SemiBold" />
+                                    <TextBlock x:Name="CloudBtnSubtitle" Text="Cloud Storage Backend"
+                                        Foreground="{StaticResource TgTextSecondaryBrush}" FontSize="11" />
+                                </StackPanel>
+                                <Border x:Name="CloudCountBadge" Grid.Column="2" CornerRadius="10"
+                                    Background="{StaticResource TgPrimaryBrush}" MinWidth="22" Height="20"
+                                    Padding="6,0" VerticalAlignment="Center" Visibility="Collapsed">
+                                    <TextBlock x:Name="CloudCountText" Text="0"
+                                        Foreground="White" FontSize="10" FontWeight="Bold"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </Grid>
+                        </Button>
+
+                        <!-- Local Backend Row -->
+                        <Button x:Name="LocalBtn" Click="OnLocalClick"
+                            HorizontalAlignment="Stretch" Height="60"
+                            Background="Transparent" BorderThickness="0" CornerRadius="8"
+                            Padding="10,8" HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="42" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20"
+                                    Background="{StaticResource TgPrimaryLightBrush}">
+                                    <TextBlock Text="📁" FontSize="16" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="12,0,0,0">
+                                    <TextBlock x:Name="LocalBtnTitle" Text="Local Disk Explorer"
+                                        Foreground="{StaticResource TgTextPrimaryBrush}"
+                                        FontSize="13" FontWeight="SemiBold" />
+                                    <TextBlock x:Name="LocalBtnSubtitle" Text="Local Directory Backend"
+                                        Foreground="{StaticResource TgTextSecondaryBrush}" FontSize="11" />
+                                </StackPanel>
+                                <Border x:Name="LocalCountBadge" Grid.Column="2" CornerRadius="10"
+                                    Background="{StaticResource TgPrimaryBrush}" MinWidth="22" Height="20"
+                                    Padding="6,0" VerticalAlignment="Center" Visibility="Collapsed">
+                                    <TextBlock x:Name="LocalCountText" Text="0"
+                                        Foreground="White" FontSize="10" FontWeight="Bold"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Divider -->
+                    <Border Height="1" Background="{StaticResource TgBgDividerBrush}" />
+
+                    <!-- Storage Stats Card -->
+                    <Border Background="{StaticResource TgBgDividerBrush}" CornerRadius="10"
+                        BorderBrush="{StaticResource TgBgInputBrush}" BorderThickness="1"
+                        Margin="15,10" Padding="15,10">
+                        <StackPanel Spacing="4">
+                            <TextBlock x:Name="StorageTitle" Text="Cloud Storage Stats"
+                                Foreground="{StaticResource TgTextPrimaryBrush}"
+                                FontSize="12" FontWeight="SemiBold" />
+                            <TextBlock x:Name="StorageUsage" Text="0 files • 0 MB"
+                                Foreground="{StaticResource TgTextSecondaryBrush}" FontSize="11" />
+                            <ProgressBar x:Name="StorageBar" Value="0" Maximum="100"
+                                Style="{StaticResource TgProgressBarStyle}" Margin="0,4,0,0" />
+                            <TextBlock x:Name="StorageCap" Text="0 bytes of Unlimited space"
+                                Foreground="{StaticResource TgTextSecondaryBrush}" FontSize="10" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Transfer Stats Card -->
+                    <Border Background="{StaticResource TgBgDividerBrush}" CornerRadius="10"
+                        BorderBrush="{StaticResource TgBgInputBrush}" BorderThickness="1"
+                        Margin="15,5" Padding="15,10">
+                        <StackPanel Spacing="4">
+                            <TextBlock x:Name="TransferLabel" Text="Transfer: Idle"
+                                Foreground="{StaticResource TgTextPrimaryBrush}"
+                                FontSize="12" FontWeight="SemiBold" />
+                            <ProgressBar x:Name="TransferBar" Value="0" Maximum="100"
+                                Foreground="{StaticResource TgSuccessBrush}"
+                                Background="{StaticResource TgBgInputBrush}"
+                                Height="5" CornerRadius="3" />
+                            <Grid>
+                                <TextBlock x:Name="TransferSize" Text="0.0 MB / 0.0 MB"
+                                    Foreground="{StaticResource TgTextSecondaryBrush}" FontSize="10"
+                                    HorizontalAlignment="Left" />
+                                <TextBlock x:Name="TransferPercent" Text="0%"
+                                    Foreground="{StaticResource TgPrimaryBrush}" FontSize="10"
+                                    FontWeight="Bold" HorizontalAlignment="Right" />
+                            </Grid>
+                            <Button x:Name="CancelTransferBtn" Content="✕ Cancel Transfer"
+                                Click="OnCancelTransferClick"
+                                Background="{StaticResource TgErrorBrush}"
+                                Foreground="White" BorderThickness="0" CornerRadius="5"
+                                Height="24" FontSize="11" FontWeight="SemiBold"
+                                Visibility="Collapsed"
+                                HorizontalAlignment="Stretch" Margin="0,4,0,0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Profile Card (Cloud only) -->
+                    <Border x:Name="ProfileCard" CornerRadius="10" Margin="15,10"
+                        Background="{StaticResource TgBgHoverBrush}" Padding="15,10">
+                        <StackPanel Spacing="4">
+                            <TextBlock x:Name="UserNameText" Text=""
+                                Foreground="{StaticResource TgTextPrimaryBrush}"
+                                FontSize="13" FontWeight="SemiBold" />
+                            <TextBlock x:Name="UserHandleText" Text=""
+                                Foreground="{StaticResource TgTextAccentBrush}" FontSize="11" />
+
+                            <Button x:Name="AutoBackupBtn" Content="⚙️  Set Auto-Backup Folder" Click="OnBackupClick"
+                                Background="Transparent" Foreground="{StaticResource TgWarningBrush}"
+                                BorderThickness="0" FontSize="11" Height="26"
+                                HorizontalAlignment="Stretch" Margin="0,6,0,0" />
+                            <Button x:Name="DownloadsBtn" Content="📥  Set Downloads Folder" Click="OnDownloadsClick"
+                                Background="Transparent" Foreground="{StaticResource TgPrimaryBrush}"
+                                BorderThickness="0" FontSize="11" Height="26"
+                                HorizontalAlignment="Stretch" />
+                            <Button x:Name="DisconnectBtn" Content="Disconnect Account" Click="OnLogoutClick"
+                                Background="Transparent" Foreground="{StaticResource TgErrorBrush}"
+                                BorderThickness="0" FontSize="11" Height="26"
+                                HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Copyright Capsule -->
+                    <Border Background="{StaticResource TgBgInputBrush}" 
+                            BorderBrush="{StaticResource TgBgDividerBrush}" 
+                            BorderThickness="1" 
+                            CornerRadius="14" 
+                            Padding="12,5"
+                            HorizontalAlignment="Center" 
+                            Margin="0,20,0,15">
+                        <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                            <TextBlock Text="✨" FontSize="10" VerticalAlignment="Center" />
+                            <TextBlock Text="By" 
+                                       Foreground="{StaticResource TgTextSecondaryBrush}" 
+                                       FontSize="10" 
+                                       FontFamily="{StaticResource TgFontFamily}" 
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="Hakim Bouzourdaz" 
+                                       Foreground="{StaticResource TgPrimaryBrush}" 
+                                       FontSize="10" 
+                                       FontWeight="SemiBold"
+                                       FontFamily="{StaticResource TgFontFamily}" 
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!-- ══════════════════════════════════════════════════════
+             RIGHT CONTENT — File Explorer Panel
+             ══════════════════════════════════════════════════════ -->
+        <Grid Grid.Column="1" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />  <!-- Header Bar -->
+                <RowDefinition Height="Auto" />  <!-- Search + Filters + Breadcrumbs -->
+                <RowDefinition Height="*" />      <!-- File List -->
+                <RowDefinition Height="Auto" />  <!-- Selection Bar -->
+                <RowDefinition Height="Auto" />  <!-- Footer -->
+            </Grid.RowDefinitions>
+
+            <!-- Header Bar -->
+            <Border Grid.Row="0" Style="{StaticResource TgCardStyle}" Padding="18,10" Margin="0,5,0,8">
+                <Grid>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock x:Name="ChatTitle" Text="Saved Messages"
+                            Foreground="{StaticResource TgTextPrimaryBrush}"
+                            FontSize="15" FontWeight="Bold" />
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <TextBlock x:Name="StatusDot" Text="●"
+                                Foreground="{StaticResource TgSuccessBrush}" FontSize="10" />
+                            <TextBlock x:Name="ChatSubtitle" Text="online • unlimited cloud storage"
+                                Foreground="{StaticResource TgTextAccentBrush}" FontSize="11" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8"
+                        HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Button x:Name="HeaderLangBtn" Content="🌐 English" Click="OnHeaderLangClick"
+                            Background="Transparent" BorderThickness="0" CornerRadius="6"
+                            Height="34" Padding="12,0" FontSize="12" FontWeight="SemiBold" />
+                        <Button x:Name="UploadBtn" Content="⬆️ Upload File" Click="OnUploadClick"
+                            Style="{StaticResource TgPrimaryButtonStyle}"
+                            Width="120" Height="34" FontSize="12" />
+                        <Button x:Name="NewFolderBtn" Content="📁 New Folder" Click="OnNewFolderClick"
+                            Background="{StaticResource TgBgInputBrush}"
+                            Foreground="{StaticResource TgPrimaryBrush}"
+                            BorderBrush="{StaticResource TgBgDividerBrush}" BorderThickness="1"
+                            CornerRadius="6" Width="120" Height="34" FontSize="12" FontWeight="SemiBold" />
+                        <Button x:Name="SyncBtn" Content="🔄 Sync Cloud" Click="OnSyncClick"
+                            Background="{StaticResource TgSuccessBrush}"
+                            Foreground="White" BorderThickness="0" CornerRadius="6"
+                            Width="120" Height="34" FontSize="12" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Search + Filters + Breadcrumbs -->
+            <StackPanel Grid.Row="1" Spacing="6">
+                <!-- Search Row -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="SearchBox" PlaceholderText="🔍 Search"
+                        Style="{StaticResource TgTextBoxStyle}"
+                        CornerRadius="17" Height="34"
+                        TextChanged="OnSearchChanged" />
+                    <Button Grid.Column="1" x:Name="RefreshBtn" Content="🔄 Refresh" Click="OnRefreshClick"
+                        Background="{StaticResource TgBgSurfaceBrush}"
+                        Foreground="White" BorderThickness="0" CornerRadius="8"
+                        Height="34" Margin="10,0,0,0" FontSize="12" />
+                </Grid>
+
+                <!-- Capsule Filters -->
+                <StackPanel x:Name="FilterPanel" Orientation="Horizontal" Spacing="6">
+                    <Button x:Name="FilterAll" Content="🌐 All" Click="OnFilterClick" Tag="all" />
+                    <Button x:Name="FilterDocs" Content="📄 Docs" Click="OnFilterClick" Tag="docs" />
+                    <Button x:Name="FilterMedia" Content="🎬 Media" Click="OnFilterClick" Tag="media" />
+                    <Button x:Name="FilterZips" Content="📦 Zips" Click="OnFilterClick" Tag="zips" />
+                    <Button x:Name="FilterOthers" Content="⚙️ Others" Click="OnFilterClick" Tag="others" />
+                </StackPanel>
+
+                <!-- Breadcrumbs -->
+                <StackPanel x:Name="BreadcrumbPanel" Orientation="Horizontal" Height="28" />
+            </StackPanel>
+
+            <!-- File List -->
+            <Border Grid.Row="2" Background="{StaticResource TgBgDeepBrush}"
+                CornerRadius="12" BorderBrush="{StaticResource TgBgDividerBrush}" BorderThickness="1"
+                Margin="0,8,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Column Headers -->
+                    <Border Grid.Row="0" Background="{StaticResource TgBgSurfaceBrush}">
+                        <Grid Padding="12,0">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <CheckBox x:Name="SelectAllCheck" Click="OnSelectAllClick"
+                                    MinWidth="0" Padding="0" VerticalAlignment="Center" />
+                                <TextBlock x:Name="ColHeaderName" Text="Name" Foreground="{StaticResource TgTextSecondaryBrush}"
+                                    FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="40"
+                                HorizontalAlignment="Right">
+                                <TextBlock x:Name="ColHeaderSize" Text="Size" Foreground="{StaticResource TgTextSecondaryBrush}"
+                                    FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center" />
+                                <TextBlock x:Name="ColHeaderDate" Text="Date" Foreground="{StaticResource TgTextSecondaryBrush}"
+                                    FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center" />
+                                <TextBlock x:Name="ColHeaderActions" Text="Actions" Foreground="{StaticResource TgTextSecondaryBrush}"
+                                    FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <!-- Scrollable File List -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="FileListPanel" Spacing="4" Padding="8,4" />
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- Selection Action Bar (hidden by default) -->
+            <Border x:Name="SelectionBar" Grid.Row="3" Visibility="Collapsed"
+                Background="{StaticResource TgBgCardBrush}" CornerRadius="10"
+                BorderBrush="{StaticResource TgPrimaryBrush}" BorderThickness="1.5"
+                Padding="16,8" Margin="0,8,0,0">
+                <Grid>
+                    <TextBlock x:Name="SelectionCount" Text="Selected: 0 items"
+                        Foreground="{StaticResource TgTextPrimaryBrush}"
+                        FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Spacing="10"
+                        HorizontalAlignment="Right">
+                        <Button x:Name="MultiDownloadBtn" Content="📥 Download Selected" Click="OnMultiDownloadClick"
+                            Style="{StaticResource TgPrimaryButtonStyle}"
+                            Width="170" Height="36" FontSize="12" Padding="12,0"
+                            VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                        <Button x:Name="MultiDeleteBtn" Content="🗑️ Delete Selected" Click="OnMultiDeleteClick"
+                            Style="{StaticResource TgDangerButtonStyle}"
+                            Background="{StaticResource TgBgInputBrush}"
+                            Width="140" Height="36" FontSize="12" Padding="12,0"
+                            VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                        <Button Content="✕" Click="OnClearSelectionClick"
+                            Background="Transparent" Foreground="{StaticResource TgErrorBrush}"
+                            BorderThickness="0" Width="32" Height="32" CornerRadius="16" FontSize="12" FontWeight="Bold"
+                            VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Footer -->
+            <TextBlock x:Name="StatusFooter" Grid.Row="4" Text="Connected."
+                Foreground="{StaticResource TgTextSecondaryBrush}"
+                FontSize="11" Margin="0,10,0,0" />
+        </Grid>
+    </Grid>
+</Page>
