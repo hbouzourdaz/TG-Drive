@@ -1172,4 +1172,36 @@ body[dir="rtl"] .docs-alert.warning {
     }
 }
 
+/* Premium Footer Credits Link */
+.footer-credits-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-credits-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-hover);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.footer-credits-link:hover {
+    color: var(--primary-hover);
+}
+
+.footer-credits-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
 

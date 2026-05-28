@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "step-3-desc": "Map your downloads and automatic background backup folders to enjoy infinite virtual storage.",
             "foot-github": "GitHub",
             "foot-download": "Direct Download",
-            "foot-copy": "&copy; 2026 TG Drive Client. Formulated with performance first."
+            "foot-copy": "&copy; 2026 TG Drive. Crafted with care by <a href=\"https://github.com/hbouzourdaz\" target=\"_blank\" class=\"footer-credits-link\">Hakim BOUZOURDAZ</a>."
         },
         ar: {
             "nav-brand": "TG Drive",
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "step-3-desc": "قم بتعيين مجلدات التنزيل والنسخ الاحتياطي التلقائي للاستمتاع بمساحة تخزين افتراضية لا نهائية.",
             "foot-github": "جيت هاب",
             "foot-download": "تحميل مباشر",
-            "foot-copy": "&copy; 2026 عميل TG Drive. تم تصميمه مع التركيز على الأداء الفائق."
+            "foot-copy": "&copy; 2026 TG Drive. تم تطويره بكل شغف بواسطة <a href=\"https://github.com/hbouzourdaz\" target=\"_blank\" class=\"footer-credits-link\">Hakim BOUZOURDAZ</a>."
         }
     };
 
