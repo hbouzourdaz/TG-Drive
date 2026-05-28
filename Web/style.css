@@ -837,3 +837,60 @@ body.light-theme .moon-icon {
         display: none;
     }
 }
+
+/* Language Switcher Styling */
+.lang-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0 10px;
+    height: 38px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    transition: border-color var(--transition-speed) ease, color var(--transition-speed) ease, background-color 0.2s ease;
+}
+
+.lang-toggle:hover {
+    background-color: var(--highlight-bg);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.lang-toggle svg {
+    flex-shrink: 0;
+}
+
+.lang-label {
+    letter-spacing: 0.5px;
+}
+
+/* Right-To-Left (RTL) Layout Adjustments */
+body[dir="rtl"] {
+    --font-heading: 'Cairo', sans-serif;
+    --font-body: 'Cairo', sans-serif;
+}
+
+body[dir="rtl"] .hero-actions {
+    justify-content: flex-start;
+}
+
+body[dir="rtl"] .explorer-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+}
+
+body[dir="rtl"] .drive-item:hover {
+    transform: translateX(-4px);
+}
+
+body[dir="rtl"] .dialog-header {
+    flex-direction: row-reverse;
+}
+
