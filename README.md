@@ -45,7 +45,7 @@ TG-Drive is a sleek, premium, performance-first Windows desktop client that maps
 
 - `TelegramDrive/` - Main C# WinUI 3 solution & project source code.
 - `Installer/` - Ready-to-use self-contained setup installer executables.
-- `Web/` - Minimalist web landing page code (HTML, CSS, JS).
+- `Web/` - Minimalist web landing page code (HTML, CSS, JS) with Arabic localization.
 - `TelegramDriveSetup.iss` - Inno Setup configuration compiler script.
 - `telegram_drive_app.py` - Auxiliary integration python scripts.
 - `README.md` - Repository overview and usage guidelines.
